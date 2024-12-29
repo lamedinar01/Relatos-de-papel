@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
@@ -26,17 +25,17 @@ export const BookDetail = () => {
             className="inline-flex items-center gap-2 text-white-600 text-lg font-medium mb-8 hover:text-white-700 transition"
           >
             <ArrowLeft size={30} />
-            Volver a la tienda
+            Volver a la tienda 
           </Link>
         </button>
       </div>
     );
   }
 
-  // Filter related books based on genre, excluding the current book
-  // const relatedBooks = books
-  //   .filter((b) => b.genre === book.genre && b.id !== book.id)
-  //   .slice(0, 4);
+
+  const relatedBooks = books
+    .filter((b) => b.genre === book.genre && b.id !== book.id)
+    .slice(0, 4);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -50,7 +49,7 @@ export const BookDetail = () => {
           Volver a la tienda
         </Link>
       </button>
-      {/* Book details section */}
+   
       <div
         style={{
           display: "flex",
@@ -104,7 +103,6 @@ export const BookDetail = () => {
             </div>
           </div>
 
-          {/* Add to Cart button */}
           <button
             onClick={() => addItem(book)}
             className="btn btn-primary flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-medium px-6 py-3 rounded-lg hover:bg-blue-700 shadow-md transition-all transform hover:-translate-y-0.5"
@@ -115,8 +113,7 @@ export const BookDetail = () => {
         </div>
       </div>
 
-      {/* Related books section */}
-      {/* {relatedBooks.length > 0 && (
+      {relatedBooks.length > 0 && (
         <div className="mt-16">
           <h2 className="text-xl font-bold text-gray-900 mb-6">
             Libros Relacionados
@@ -127,7 +124,7 @@ export const BookDetail = () => {
             ))}
           </div>
         </div>
-      )} */}
+      )}
     </div>
   );
 };
